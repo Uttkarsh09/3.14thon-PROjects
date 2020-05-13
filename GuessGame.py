@@ -27,151 +27,68 @@ choice = take_choice()
 
 
 def eStart(choice):
+    log = []
     if choice == 1:
-        print("""
-                                EASY
-        Task:-
-            GUESS THE NUMBER
-        Rules:-
-            1)The random number will be between 1 to 10.
-            2) The number is an integer, so entering a decimal will be wrong.
-            3) You will get 5 chances.
-        """)
-        time.sleep(5)
-        clear()
-
-        n = rand.randrange(1,10)
+        limit = 10
+        word = "EASY"
         lives = 4
-
-        while True:
-            try:
-                clear()
-                print(f"""
-        Chances Left -->  {lives}
-
-                """)
-
-                guess = int(input("Take a guess: "))
-
-                if guess == n:
-                    print("CORRECT ANSWER!!!")
-                    break
-                elif guess < n:
-                    print("The guessed number is small")
-                    lives -= 1
-                else:
-                    print("The guessed number is greater")
-                    lives -= 1
-
-            except ValueError:
-                print("You have entered a decimal number")
-                lives -= 1
-
-            if lives == 0:
-                print("\nGame Over")
-                print(f"The number was  -->  {n}")
-                time.sleep(5)
-                break
-
-            print(f"You are left with {lives} chances\n")
-            time.sleep(2.5)
-
     elif choice == 2:
-        print("""
-                                MEDIUM
-        Task:-
-            GUESS THE NUMBER
-        Rules:-
-            1)The random number will be between 1 to 50.
-            2) The number is an integer, so entering a decimal will be wrong.
-            3) You will get 5 chances.
-        """)
-        time.sleep(5)
-        clear()
-
-        n = rand.randrange(1,50)
+        limit = 50
+        word = "MEDIUM"
         lives = 5
+    else:
+        lives = 6
+        word = "DIFFICULT"
+        limit = 100
 
-        while True:
-            try:
-                clear()
-                print(f"""
-        Chances Left -->  {lives}
-
-                """)
-
-                guess = int(input("Take a guess: "))
-
-                if guess == n:
-                    print("CORRECT ANSWER!!!")
-                    break
-                elif guess < n:
-                    print("The guessed number is small")
-                    lives -= 1
-                else:
-                    print("The guessed number is greater")
-                    lives -= 1
-
-            except ValueError:
-                print("You have entered a decimal number")
-                lives -= 1
-
-            if lives == 0:
-                print("\nGame Over")
-                print(f"The number was  -->  {n}")
-                time.sleep(5)
-                break
-
-            print(f"You are left with {lives} chances\n")
-            time.sleep(2.5)
-
-    elif choice == 3:
-        print("""
-                                DIFFICULT
+    print(f"""
+                                {word}
         Task:-
             GUESS THE NUMBER
         Rules:-
-            1)The random number will be between 1 to 100.
+            1)The random number will be between 1 to {limit}.
             2) The number is an integer, so entering a decimal will be wrong.
-            3) You will get 5 chances.
+            3) You will get {lives} chances.
         """)
-        time.sleep(5)
-        clear()
+        
+    time.sleep(5)
+    clear()
 
-        n = rand.randrange(1,100)
-        lives = 6
+    n = rand.randrange(1,limit)
 
-        while True:
-            try:
-                clear()
-                print(f"""
-        Chances Left -->  {lives}
+    while True:
+        try:
+            clear()
+            print(f"""
+    Chances Left -->  {lives}
 
-                """)
+            """)
 
-                guess = int(input("Take a guess: "))
+            guess = int(input("Take a guess: "))
+            log.append(guess)
 
-                if guess == n:
-                    print("CORRECT ANSWER!!!")
-                    break
-                elif guess < n:
-                    print("The guessed number is small")
-                    lives -= 1
-                else:
-                    print("The guessed number is greater")
-                    lives -= 1
-
-            except ValueError:
-                print("You have entered a decimal number")
+            if guess == n:
+                print("CORRECT ANSWER!!!")
+                break
+            elif guess < n:
+                print("The guessed number is small")
+                lives -= 1
+            else:
+                print("The guessed number is greater")
                 lives -= 1
 
-            if lives == 0:
-                print("\nGame Over")
-                print(f"The number was  -->  {n}")
-                time.sleep(5)
-                break
+        except ValueError:
+            print("You have entered a decimal number")
+            lives -= 1
 
-            print(f"You are left with {lives} chances\n")
-            time.sleep(2.5)
-            
+        if lives == 0:
+            print("\nGame Over")
+            print(f"The number was  -->  {n}")
+            print("Your inputs -->  ",log)
+            time.sleep(5)
+            break
+
+        print(f"You are left with {lives} chances\n")
+        time.sleep(2.5)
+
 eStart(choice)
