@@ -1,4 +1,4 @@
-#yes this has a number of glitches
+#yes this has a number of bugs :(
 
 from tkinter import *
 
