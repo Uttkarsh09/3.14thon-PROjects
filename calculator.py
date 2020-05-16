@@ -1,6 +1,7 @@
 #yes this has a number of bugs :(
 
 from tkinter import *
+from time import sleep
 
 root = Tk()
 root.title("S1mple Calculator")
@@ -18,17 +19,17 @@ def button_click(num):                              #To add the digit on the scr
         e.insert(0,str(current) + ".")
 
 def button_equ():                                   #Things to be done when "=" is pressed
-    global choice, num1    
+    global choice, num1
+
     if num1 == 1 and choice == "+":
         e.insert(0,"NEVER SETTLE")
     else:
-        def printit(ans):
+        def printit(ans):                           #defining the function
             if not ans.is_integer():
                 e.insert(0,f"{ans:.2f}")
             else:
                 e.insert(0, int(ans))
 
-        
         num2 = float(e.get())
         e.delete(0,END)
         if choice == "+":
@@ -69,8 +70,9 @@ def correct():                                              # for the backspace
 def dosomething(x):
     global choice, num1
     num1 = float(e.get())
-    e.delete(0,END)
     choice = x
+    e.delete(0,END)
+    
     
 
 b_ac = Button(root, text="AC", padx=36, pady=20,command=clrscr)
