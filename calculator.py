@@ -9,8 +9,7 @@ choice = ""
 e = Entry(root, width=45, borderwidth=5)
 e.grid(row=0, column=0, columnspan=4, padx=1, pady=1)
 
-
-def button_click(num):  
+def button_click(num):                              #To add the digit on the screen
     current = e.get()
     e.delete(0,END)
     if num != -1:
@@ -18,46 +17,44 @@ def button_click(num):
     else:
         e.insert(0,str(current) + ".")
 
-def button_add():
-    global num1
-    num1 = float(e.get())
+def button_equ():                                   #Things to be done when "=" is pressed
+    global choice, num1    
+    if num1 == 1 and choice == "+":
+        e.insert(0,"NEVER SETTLE")
+    else:
+        def printit(ans):
+            if not ans.is_integer():
+                e.insert(0,f"{ans:.2f}")
+            else:
+                e.insert(0, int(ans))
+
+        
+        num2 = float(e.get())
+        e.delete(0,END)
+        if choice == "+":
+            num1 += num2
+            printit(num1)
+        elif choice == "-":
+            num1 -= num2
+            printit(num1)
+        elif choice == "*":
+            num1 *= num2
+            printit(num1)    
+        elif choice == "/":
+            num1 /= num2
+            printit(num1)
+        elif choice == "%":
+            num1 = (num2 / num1) * 100
+            if num1.is_integer():
+                e.insert(0, int(num1))
+            else:
+                e.insert(0,f"{num1:.2f}")
+
+
+def clrscr():                                               # C nostalgia XD
     e.delete(0,END)
 
-def button_equ():
-
-    def printit(ans):
-        if not ans.is_integer():
-            e.insert(0,f"{ans:.2f}")
-        else:
-            e.insert(0, int(ans))
-
-    global choice, num1
-    num2 = float(e.get())
-    e.delete(0,END)
-    if choice == "+":
-        num1 += num2
-        printit(num1)
-    elif choice == "-":
-        num1 -= num2
-        printit(num1)
-    elif choice == "*":
-        num1 *= num2
-        printit(num1)    
-    elif choice == "/":
-        num1 /= num2
-        printit(num1)
-    elif choice == "%":
-        num1 = (num2 / num1) * 100
-        if num1.is_integer():
-            e.insert(0, int(num1))
-        else:
-            e.insert(0,f"{num1:.2f}")
-
-
-def clrscr():
-    e.delete(0,END)
-
-def correct():
+def correct():                                              # for the backspace
     temp = float(e.get())
     e.delete(0,END)
 
