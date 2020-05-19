@@ -1,4 +1,4 @@
-#yes this has a number of bugs :(
+#yes this has a number of bugs : (
 
 from tkinter import *
 from time import sleep
