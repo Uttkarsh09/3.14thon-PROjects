@@ -1,5 +1,5 @@
 #if you think that this script is shit: 
-#   bitch this is underconstruction
+#   f*** o**
 
 from bs4 import BeautifulSoup
 import requests
