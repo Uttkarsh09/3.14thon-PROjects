@@ -37,7 +37,7 @@ for article in soup.find_all("div", class_="views-row"):
     sRecovered.append(article.find("div", class_="tick-discharged").small.text)
     sRIP.append(article.find("div", class_="tick-death").small.text)
 
-a = "STATE / UNIONTERRITORY"
+a = "STATE / UNION TERRITORY"
 b = "CONFIRM"
 c = "ACTIVE"
 d = "RECOVERED"
