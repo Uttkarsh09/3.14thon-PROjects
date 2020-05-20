@@ -42,7 +42,7 @@ b = "CONFIRM"
 c = "ACTIVE"
 d = "RECOVERED"
 e = "DEATHS"
-print(f"\n\n| {a:22} | {b:8} | {c:7} | {d:10} | {e:7} |\n")
+print(f"\n\n| {a:23} | {b:8} | {c:7} | {d:10} | {e:7} |\n")
 for i in range(len(sName)):
     
-    print(f"| {(sName[i]):22} | {(sConfirm[i]):8} | {(sActive[i]):7} | {(sRecovered[i]):10} | {(sRIP[i]):7} |")
+    print(f"| {(sName[i]):23} | {(sConfirm[i]):8} | {(sActive[i]):7} | {(sRecovered[i]):10} | {(sRIP[i]):7} |")
