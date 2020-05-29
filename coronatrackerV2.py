@@ -23,7 +23,7 @@ print("ALL OVER INDIA")
 for i in range(len(textforit)):
     print(f"{numbersinfo[i]:15} --> {textforit[i]:6}")
 
-
+#The class was created to sort the state names
 class store_data:
 
     def __init__(self, sName, sActive, sDeaths, sRecovered):
@@ -45,6 +45,8 @@ for subtable in article.find_all("tr"):
     active = subtable.find("div", class_="col2").text
     deaths = subtable.find("div", class_="col3").text
     recovered = subtable.find("div", class_="col4").text
+    if name == "Total":
+        continue
     arrObj.append(store_data(name, active, deaths, recovered))
 
 #Sorting the names of the state as they are not in proper order
@@ -75,7 +77,7 @@ if path.isfile("CORONA.csv") == True:
     flag1 = 0
     flag2 = 0
     i = 0
-    print("\n\nSince last time you checked the status what hs changed...")
+    print("\n\nSince last time you checked the status what has changed...")
     with open("CORONA.csv", "r") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=",")
         for line in csv_reader:
@@ -117,12 +119,22 @@ if path.isfile("CORONA.csv") == True:
                     flag2 = 1
                 
                 if diff > 0:
-                    print(f"\t Deaths = +{diff}")
+                    print(f"\t Recovered = +{diff}")
                 else:
-                    print(f"\t Deaths = {diff}")
+                    print(f"\t Recovered = {diff}")
             i += 1
+            if flag2 == 1:
+                print()
             flag2 = 0
-            print()
+            
+
+    with open("CORONA.csv", "w") as csv_file:
+        csv_writer = csv.writer(csv_file, delimiter=",")
+        csv_writer.writerow([a,b,c,d])
+
+        for i in range(len(arrObj)):
+            csv_writer.writerow([arrObj[i].sName, arrObj[i].sActive, arrObj[i].sDeaths, arrObj[i].sRecovered])
+
 else:
 
     with open("CORONA.csv", "w") as csv_file:
