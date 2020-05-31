@@ -48,4 +48,4 @@ allWords = para.split(" ")
 
 for character in allWords:
 	enter_the_words.send_keys(character + " ")
-	sleep(0.1)
+	sleep(0.1)                                      # If you are getting banned increase the sleep value
