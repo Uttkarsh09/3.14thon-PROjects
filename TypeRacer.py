@@ -1,6 +1,6 @@
 #   To run this you should have you browsers drivers installed
 #   Link - https://chromedriver.storage.googleapis.com/index.html?path=83.0.4103.39/
-#   Once installed, replace the value of the variable "PATH" with the path of the installed driver on your pc
+#   Once installed, replace the value of the variable "PATH"(line no. 14) with the path of the installed driver on your pc
 #   For chrome only....
 
 from selenium import webdriver
