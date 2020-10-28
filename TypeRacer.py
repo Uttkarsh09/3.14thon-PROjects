@@ -3,7 +3,7 @@
 #       For version 84.0.blah-blah = https://chromedriver.storage.googleapis.com/index.html?path=84.0.4147.30/
 #       For version 83.0.blah-blah = https://chromedriver.storage.googleapis.com/index.html?path=83.0.4103.39/
 #       For version 81.0.blah-blah = please update your chrome(https://chromedriver.storage.googleapis.com/index.html?path=81.0.4044.138/)
-#   Once installed, replace the value of the variable "PATH"(line no. 14) with the path of the installed driver on your pc
+#   Once installed, replace the value of the variable "PATH"(line no. 17) with the path of the installed driver on your pc
 #   For chrome only....
 
 from selenium import webdriver
